@@ -22,25 +22,25 @@ class PriceemolSpider(scrapy.Spider):
 
             reader = csv.DictReader(f)
 
-        for row in reader:
-            url = row['url']
+            for row in reader:
+                url = row['url']
 
         # Change the page value incrementally to navigate through
         # the productlist
         # You can play with the range value according to maximum
         # product quantity, 30 pages to scrape as default
 
-        link_urls = [url.format(i) for i in range(1, 30)]
+                link_urls = [url.format(i) for i in range(1, 30)]
 
-        for link_url in link_urls:
-            print(link_url)
+                for link_url in link_urls:
+                    print(link_url)
 
         # Pass to each link containing products to parse_ product_pages function
         # with the gender metadata
 
-        request = Request(link_url, callback=self.parse_product_pages, meta={'gender': row['gender']})
+                    request = Request(link_url, callback=self.parse_product_pages, meta={'gender': row['gender']})
 
-        yield request
+                    yield request
 
     # This function scrapes the page with the help of xpath provided
 
