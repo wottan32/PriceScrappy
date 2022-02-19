@@ -15,17 +15,17 @@ class PriceItem(scrapy.Item):
     priceOriginal = Field()
     priceSale = Field()
 
-    #items to store links
+    # items to store links
     imageLink = Field()
     productLink = Field()
 
-    #item for company name
+    # item for company name
     company = Field()
 
     pass
 
-    class ImgData(Item):
-    #image pipline items to download product images
-        image_urls = scrapy.Field()
-        images = scrapy.Field()
 
+class ImgData(Item):
+    # image pipline items to download product images
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
